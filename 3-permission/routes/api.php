@@ -10,11 +10,11 @@ Route::prefix('/v1')->group(function () {
 
     Route::middleware(['auth:api'])->group(function () {
         Route::prefix('/employee')->group(function () {
-            Route::post('/create', [EmployeeController::class, 'create']);
-            Route::patch('/update/{id}', [EmployeeController::class, 'update']);
-            Route::delete('/delete/{id}', [EmployeeController::class, 'delete']);
-            Route::get('/get/{id}', [EmployeeController::class, 'get']);
-            Route::get('/get-all', [EmployeeController::class, 'getAll']);
+            Route::post('/create', [EmployeeController::class, 'create'])->middleware('permission:create');
+            Route::patch('/update/{id}', [EmployeeController::class, 'update'])->middleware('permission:update');
+            Route::delete('/delete/{id}', [EmployeeController::class, 'delete'])->middleware('permission:delete');
+            Route::get('/get/{id}', [EmployeeController::class, 'get'])->middleware('permission:get');
+            Route::get('/get-all', [EmployeeController::class, 'getAll'])->middleware('permission:get-all');
         });
     });
 });

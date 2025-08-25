@@ -10,11 +10,14 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
+
+        $user->assignRole('employee');
+
         return response()->json('User registered successfully');
     }
 
@@ -30,7 +33,7 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'User login successfully',
-            'access_token' => $token
+            'token' => $token
         ]);
     }
 }
