@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customer;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class EmployeeController extends Controller
 {
     public function index()
     {
-        return view('pages.customer');
+        return view('pages.employee');
     }
 
     public function create(Request $request)
     {
-        Customer::create([
+        Employee::create([
             'name' => $request->name,
             'address' => $request->address,
             'salary' => $request->salary,
         ]);
 
-        return redirect()->back()->with('success', 'Customer saved successfully');
+        return redirect()->back()->with('success', 'Employee saved successfully');
     }
 }
