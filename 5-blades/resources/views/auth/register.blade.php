@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Register</title>
+    @vite('resources/css/app.css')
 </head>
 
 <body>
@@ -29,6 +30,5 @@
     </div>
 </div>
 
-<script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>
