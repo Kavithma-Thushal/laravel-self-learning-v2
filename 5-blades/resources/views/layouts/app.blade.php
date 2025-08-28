@@ -8,7 +8,12 @@
 </head>
 
 <body>
+<!-- Navbar -->
+@include('layouts.partials.navbar')
+
 @yield('content')
 
+<!-- Footer -->
+@include('layouts.partials.footer')
 </body>
 </html>
