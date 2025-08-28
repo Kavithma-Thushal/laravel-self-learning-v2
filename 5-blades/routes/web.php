@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,9 @@ Route::prefix('/auth')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::prefix('/customer')->group(function () {
+        Route::get('/view', [CustomerController::class, 'index'])->name('customer.view');
+        Route::post('/create', [CustomerController::class, 'create'])->name('customer.create');
+    });
 });
